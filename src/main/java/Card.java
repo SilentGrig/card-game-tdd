@@ -10,7 +10,7 @@ public class Card {
     public final static Set<String> faces = new LinkedHashSet<>(Arrays.asList("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"));
     private final Map<String, Integer> valueMap = new HashMap<>() {
         {
-            put("A", 1);
+            put("A", 11);
             put("2", 2);
             put("3", 3);
             put("4", 4);
@@ -20,9 +20,9 @@ public class Card {
             put("8", 8);
             put("9", 9);
             put("10", 10);
-            put("J", 11);
-            put("Q", 12);
-            put("K", 13);
+            put("J", 10);
+            put("Q", 10);
+            put("K", 10);
         }
     };
 
@@ -50,6 +50,9 @@ public class Card {
     }
 
     public boolean equals(Card other) {
+        if (other == null) {
+            return false;
+        }
         if (!this.face.equals(other.face)) {
             return false;
         }
@@ -57,5 +60,10 @@ public class Card {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return suit + face;
     }
 }
